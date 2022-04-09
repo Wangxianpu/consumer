@@ -1,0 +1,18 @@
+[{
+  "key": "user.info.refresh.job.crons",
+  "value": "10/10 * * * * ?",
+  "desc": "userInfo刷新任务运行表达式"
+},{
+  "key": "user.info.refresh.job.fixedDelay",
+  "value": "100000",
+  "desc": "userInfo任务运行完之后延迟多久再次运行"
+},{
+  "key": "remote.provider.hosts",
+  "value": "http://PROVIDER-ACCOUNT-2",
+  "desc": "服务提供方主机名"
+},{
+  "key": "user.info.refresh.job.invoke.url",
+  "value": "/sao/getUserDtoByUserIdAndAccNo",
+  "desc": "job任务：UserInfoRefreshJob， 远程调用接口配置名"
+}
+]
