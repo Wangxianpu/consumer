@@ -8,15 +8,15 @@ eureka:
     fetch-registry: false #不从eureka上来获取服务的注册信息
     service-url:
       defaultZone: http://localhost:8761/eureka/
-spring:
-  application:
-    name: config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/Wangxianpu/config-center/config/d #服务的git仓库地址
-          search-paths: /**  #配置文件所在的目录
-          username: root #git仓库的用户名
-          password: root #git仓库的密码
-      label: master #配置文件所在的分支
+#spring:
+#  application:
+#    name: config-server
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/Wangxianpu/mix-project.git #服务的git仓库地址
+#          search-paths: /**  #配置文件所在的目录
+#          username: root #git仓库的用户名
+#          password: root #git仓库的密码
+#      label: master #配置文件所在的分支
