@@ -24,6 +24,7 @@ public class UserSaoTest extends BaseTest {
 
     @Test
     public void testGetUserDtoByUserIdAndAccNo(){
+
         System.out.println(GSON.toJson(userSao.getUserDtoByUserIdAndAccNo("id1000","1000")));
     }
 }
