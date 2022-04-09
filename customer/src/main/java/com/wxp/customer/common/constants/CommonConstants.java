@@ -11,5 +11,14 @@ public class CommonConstants {
     /**
      * json转化工具类
      */
-    public final static Gson GSON = new Gson();
+    public static final Gson GSON = new Gson();
+    /**
+     * 配置中心地址
+     */
+    public static final String CONFIG_CENTER_SERVE_URL = "http://PROVIDER-ACCOUNT-2";
+
+    /**
+     * 读取配置接口
+     */
+    public static final String PROP_REQUEST_BY_PROP_NAME_INVOKE_URL = "/sao/getConsumerPropsByPropName";
 }

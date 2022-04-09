@@ -1,8 +1,8 @@
 package com.wxp.customer.job;
 
+import com.wxp.customer.common.util.CacheUtil;
 import com.wxp.customer.common.util.HttpUtils;
 import com.wxp.customer.common.constants.JobConstants;
-import com.wxp.customer.config.PropertyConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.annotation.Schedules;
@@ -23,6 +23,8 @@ public class UserInfoRefreshJob {
     @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
+    CacheUtil cacheUtil;
 
     @Schedules({
             @Scheduled(cron = "10/10 * * * * ? ")
@@ -32,8 +34,8 @@ public class UserInfoRefreshJob {
         requestMap.put("userId","id1000");
         requestMap.put("bankAccNo","1000");
 
-        String serveUrl = PropertyConfig.getPropertyFromProps(JobConstants.REMOTE_PROVIDER_HOST);
-        String invokeUrl = PropertyConfig.getPropertyFromProps(JobConstants.USER_INFO_REFRESH_JOB_INVOKE_URL);
+        String serveUrl = cacheUtil.getPropertyByKey(JobConstants.REMOTE_PROVIDER_HOST);
+        String invokeUrl = cacheUtil.getPropertyByKey(JobConstants.USER_INFO_REFRESH_JOB_INVOKE_URL);
 
         Object obj = restTemplate.getForObject(HttpUtils.getUrl(serveUrl+invokeUrl,requestMap),String.class);
         if(obj == null){
