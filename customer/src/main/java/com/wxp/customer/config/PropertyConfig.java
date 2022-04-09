@@ -2,7 +2,9 @@ package com.wxp.customer.config;
 
 import com.google.common.reflect.TypeToken;
 import com.wxp.customer.common.constants.CommonConstants;
+import com.wxp.customer.common.util.IOUtil;
 import com.wxp.customer.common.vo.PropertyVO;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +21,9 @@ import java.util.Map;
  */
 @Configuration
 public class PropertyConfig {
+
+    @Value("property.remote.dir")
+    private String remotePropUrl;
     //存放配置信息
     private final static Map<String,String> propertyMaps = new HashMap<>();
 
@@ -34,9 +39,10 @@ public class PropertyConfig {
     private void loadPropertyFiles() {
         StringBuilder jsonStr = new StringBuilder();
         Reader fr = null;
+        InputStream is = null;
         try {
-            fr = new InputStreamReader(new FileInputStream("E:/workspace/moxi/mix-project/customer/src/main/resources/properties.json"));
-//            fr = new FileReader("properties.json");
+            is = new FileInputStream(remotePropUrl);
+            fr = new InputStreamReader(is);
 
             char[] buffer = new char[50];
             while (fr.read(buffer,0,buffer.length) != -1){
@@ -53,12 +59,11 @@ public class PropertyConfig {
             //todo log输出
             e.printStackTrace();
         }finally {
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                IOUtil.closeIO(is,fr);
+            } catch (IOException e) {
+                //todo log输出
+                e.printStackTrace();
             }
         }
 

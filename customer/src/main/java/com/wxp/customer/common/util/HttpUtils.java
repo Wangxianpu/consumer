@@ -1,4 +1,4 @@
-package com.wxp.customer.common;
+package com.wxp.customer.common.util;
 
 import java.util.Map;
 

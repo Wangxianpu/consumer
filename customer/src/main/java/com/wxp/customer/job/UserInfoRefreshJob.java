@@ -1,10 +1,9 @@
 package com.wxp.customer.job;
 
-import com.wxp.customer.common.HttpUtils;
+import com.wxp.customer.common.util.HttpUtils;
 import com.wxp.customer.common.constants.JobConstants;
 import com.wxp.customer.config.PropertyConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.codec.json.Jackson2JsonDecoder;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.annotation.Schedules;
 import org.springframework.stereotype.Component;
