@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * todo 只能允许其他微服务调用，需要做访问隔离
  * @description: 用户信息的远程调用接口
  * @author: wxp
  * @time: 2022/4/7 21:46
@@ -23,7 +24,7 @@ public class UserSao {
         return userService.getUserDtoByUserId(userId);
     }
 
-    @GetMapping("/sao/55")
+    @GetMapping("/sao/getUserDtoByUserIdAndAccNo")
     public UserDto getUserDtoByUserIdAndAccNo(String userId ,String bankAccNo ){
         return userService.getUserDtoByUserIdAndAccNo(userId,bankAccNo);
     }
