@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxp.mix.dao.UserMapper">
+
+    <select id="getUserDtoByUserId" parameterType="java.lang.String" resultType="com.wxp.mix.dto.UserDto" >
+        select
+            user_id "userId",
+            user_name "userName",
+            age "age",
+            bank_acc_no "bankAccNo"
+        from t_user t
+         where t.user_id = #{userId}
+    </select>
+
+    <select id="getUserDtoListLikedByUserId" resultType="com.wxp.mix.dto.UserDto" >
+        select
+        user_id "userId",
+        user_name "userName",
+        age "age",
+        bank_acc_no "bankAccNo"
+        from t_user t
+        where t.user_id like '%' || #{userId} || '%'
+        limit #{pageParam.curIndex},#{pageParam.pageSize}
+    </select>
+
+    <select id="getUserDtoByAccountNo" parameterType="java.lang.String" resultType="com.wxp.mix.dto.UserDto" >
+        select
+        user_id "userId",
+        user_name "userName",
+        age "age",
+        bank_acc_no "bankAccNo"
+        from t_user t
+        where t.bank_acc_no = #{bankAccNo}
+    </select>
+
+    <select id="getUserDtoByUserIdAndAccNo" parameterType="java.lang.String" resultType="com.wxp.mix.dto.UserDto" >
+        select
+        user_id "userId",
+        user_name "userName",
+        age "age",
+        bank_acc_no "bankAccNo"
+        from t_user t
+        where t.bank_acc_no = #{bankAccNo}
+        and t.user_id = #{userId}
+    </select>
+</mapper>
