@@ -16,4 +16,16 @@ public class BaseTest {
     void contextLoads() {
 
     }
+
+    static float func1(){
+        return 3L;
+    }
+
+    static float func2(){
+        return 3;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(func1());
+    }
 }
