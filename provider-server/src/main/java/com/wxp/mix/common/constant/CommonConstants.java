@@ -15,5 +15,5 @@ public class CommonConstants {
     /**
      * 初始化加载消费端配置文件的目录
      */
-    public static final String INIT_PROP_DIR = "consumer-config";
+    public static final String INIT_PROP_DIR = "config";
 }

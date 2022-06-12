@@ -1,5 +1,6 @@
 package com.wxp.mix.controller;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.wxp.mix.dto.UserDto;
 import com.wxp.mix.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    protected UserService userService;
 
     @RequestMapping("/userId")
     public UserDto getUserDtoByUserId(String userId){
